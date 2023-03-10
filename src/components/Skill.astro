@@ -1,10 +1,14 @@
 ---
 export interface Props {
   name: string;
-  strenght: number;
+  strenght?: number;
 }
 
 const { name, strenght } = Astro.props;
 ---
 
-<li class="flex justify-between"><div>{name}</div><div>{strenght}</div></li>
+<li
+  class="flex justify-between font-mono text-gray-200 text-sm leading-relaxed"
+>
+  <div>{name}</div><div>{strenght}</div>
+</li>

@@ -32,7 +32,7 @@ import Layout from "../layouts/Layout.astro";
           I am the technical lead for 9 frontend devs
         </p>
         <h4 class="mb-1 font-semibold text-slate-600">My responsibilities</h4>
-        <ul class="list-disc list-inside mb-4 font-light ml-1">
+        <ul class="list-disc list-inside mb-4 font-light ml-1 leading-tight">
           <li>Developing the foundations for new features</li>
           <li>Architectural design and UX guidance</li>
           <li>Final pull request reviews</li>
@@ -42,7 +42,7 @@ import Layout from "../layouts/Layout.astro";
           <li>Mentorship of juniors and new hires</li>
           <li>Conducting technical interviews for potential hires</li>
         </ul>
-        <p class="">
+        <p class="leading-tight text-gray-500 italic">
           <span class="material-symbols-outlined relative top-1.5 left-[-3px]">
             chevron_right</span
           ><span class=""
@@ -73,10 +73,7 @@ import Layout from "../layouts/Layout.astro";
               <JobTitle
                 name="ASP.NET Developer"
                 date={{ start: "2015", end: "2017" }}
-              >
-                Technical ownership of a UX focused, configurable,
-                enterprise-level React application
-              </JobTitle>
+              />
             </Company>
           </li>
           <li>
@@ -90,7 +87,7 @@ import Layout from "../layouts/Layout.astro";
             <Company name="Orbit One" date={{ start: "2010", end: "2012" }}>
               <JobTitle name="ASP.NET Developer">
                 ASP.NET, Umbraco CMS, SharePoint 2010, MS Dynamics CRM 2011, MS
-                SQL 2005-2010
+                SQL 2005-2008
               </JobTitle>
             </Company>
           </li>
@@ -128,10 +125,7 @@ import Layout from "../layouts/Layout.astro";
           <Skill name="React Testing Library" strenght={7} />
           <Skill name="React Query (Tanstack Query)" strenght={7} />
           <Skill name="Azure DevOps CI/CD" strenght={6} />
-        </ul>
-      </SideSection>
-      <SideSection title="Outdated">
-        <ul>
+          <li class="pt-2 italic text-gray-500">Decayed knowledge</li>
           <Skill name="jQuery" strenght={9} />
           <Skill name="ASP.NET MVC" strenght={8} />
           <Skill name="ASP.NET" strenght={7} />
@@ -139,15 +133,15 @@ import Layout from "../layouts/Layout.astro";
           <Skill name="PowerShell" strenght={6} />
         </ul>
       </SideSection>
-      <SideSection title="Others">
+      <SideSection title="Toolset">
         <ul>
-          <li>Git</li>
-          <li>ESLint</li>
-          <li>Pact Contract Testing</li>
-          <li>Pendo</li>
-          <li>App Insights</li>
-          <li>VSCode</li>
-          <li>Platform agnostic</li>
+          <Skill name="Git" />
+          <Skill name="ESLint" />
+          <Skill name="Pact Contract Testing" />
+          <Skill name="Pendo" />
+          <Skill name="App Insights" />
+          <Skill name="VSCode" />
+          <Skill name="OSX/Windows" />
         </ul>
       </SideSection>
     </section>
