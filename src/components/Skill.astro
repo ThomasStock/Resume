@@ -1,0 +1,10 @@
+---
+export interface Props {
+  name: string;
+  strenght: number;
+}
+
+const { name, strenght } = Astro.props;
+---
+
+<li class="flex justify-between"><div>{name}</div><div>{strenght}</div></li>

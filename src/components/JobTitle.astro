@@ -1,0 +1,24 @@
+---
+export interface Props {
+  name: string;
+  date?: { start: string; end: string };
+}
+
+const { name, date } = Astro.props;
+const { start, end } = date || {};
+---
+
+<li class="mb-4">
+  <h5 class="font-lato font-bold mb-1">
+    {name}{
+      date ? (
+        <span>
+          ({start} - {end})
+        </span>
+      ) : null
+    }
+  </h5>
+  <p class="text-gray-500 font-light">
+    <slot />
+  </p>
+</li>
