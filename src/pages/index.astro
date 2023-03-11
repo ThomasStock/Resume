@@ -10,22 +10,28 @@ import Layout from "../layouts/Layout.astro";
 <Layout title="Thomas Stock - Freelance Frontend Engineer">
   <div class="flex flex-col sm:flex-row max-w-7xl">
     <div class="mx-10">
-      <header class="mt-20 mb-16 bg-yellow-400 py-5 -mx-10 px-10">
-        <h1
-          class="text-6xl lg:text-7xl mb-4 font-serif font-light text-slate-700"
-        >
-          <span class="font-semibold">Thomas</span> Stock
-        </h1>
-        <h2 class="text-2xl font-serif text-slate-800 font-thin">
-          <span class="text-3xl text-slate-700 font-normal"
-            >Frontend Developer</span
-          > with
-          <span class="text-slate-600 font-normal w-full"
-            >15 years of experience</span
+      <div class="relative -mx-[57px]">
+        <header class="mt-20 mb-16 bg-yellow-400 py-5 px-12 relative z-20">
+          <h1
+            class="text-6xl lg:text-7xl mb-4 font-serif font-light text-slate-700"
           >
-          and a passion for <span class="text-slate-600 font-normal">UX</span>
-        </h2>
-      </header>
+            <span class="font-semibold">Thomas</span> Stock
+          </h1>
+          <h2 class="text-2xl font-serif text-slate-800 font-thin">
+            <span class="text-3xl text-slate-700 font-normal"
+              >Frontend Developer</span
+            > with
+            <span class="text-slate-600 font-normal w-full"
+              >15 years of experience</span
+            >
+            and a passion for <span class="text-slate-600 font-normal">UX</span>
+          </h2>
+        </header>
+        <div
+          class="border-transparent border-solid border-r-yellow-500 border-[17px] w-0 h-0 absolute -left-[17px] -bottom-[17px]"
+        >
+        </div>
+      </div>
       <MainSection title="Current role">
         <p class="mb-3">
           As <span class="text-slate-800 font-bold">Lead React Developer</span>,
@@ -42,7 +48,7 @@ import Layout from "../layouts/Layout.astro";
           <li>Mentorship of juniors and new hires</li>
           <li>Conducting technical interviews for potential hires</li>
         </ul>
-        <div class="leading-tight text-gray-500 font-thin italic flex flex-row">
+        <div class="leading-tight text-gray-600 font-thin italic flex flex-row">
           <div class="mt-[3px]">
             I love this role but I wouldn't mind taking my skills and expertise
             to a smaller company as the main (or only) frontend guy
