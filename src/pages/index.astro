@@ -11,7 +11,9 @@ import Layout from "../layouts/Layout.astro";
   <div class="flex flex-col sm:flex-row max-w-7xl">
     <div class="mx-10">
       <div class="relative -mx-[57px]">
-        <header class="mt-20 mb-16 bg-yellow-400 py-5 px-12 relative z-20">
+        <header
+          class="mt-20 mb-12 bg-yellow-400 py-5 px-12 relative z-20 shadow"
+        >
           <h1
             class="text-6xl lg:text-7xl mb-4 font-serif font-light text-slate-700"
           >
@@ -115,38 +117,63 @@ import Layout from "../layouts/Layout.astro";
       </MainSection>
     </div>
     <section
-      class="w-screen sm:order-first sm:w-80 bg-slate-800 min-h-screen text-slate-200 flex-shrink-0 px-10 pt-52"
+      class="w-screen sm:order-first sm:w-80 bg-slate-800 min-h-screen text-slate-200 flex-shrink-0 px-10 pt-14"
     >
+      <div
+        class="hidden md:block w-36 h-36 my-4 mt-4 mb-14 ml-10 rounded-full border-yellow-400 border-2 bg-[url('/t.jpeg')] bg-cover bg-center"
+      >
+      </div>
       <SideSection title="Skillset">
         <ul>
           <Skill name="React" strenght={10} />
           <Skill name="TypeScript" strenght={10} />
+          <Skill name="JavaScript" strenght={9} />
+          <Skill name="HTML / CSS" strenght={9} />
+          <Skill name="jQuery" strenght={9} />
           <Skill name="Cypress" strenght={9} />
           <Skill name="Material-UI (MUI)" strenght={9} />
           <Skill name="Jest" strenght={8} />
           <Skill name="Redux-saga" strenght={8} />
           <Skill name="Webpack" strenght={7} />
           <Skill name="React Testing Library" strenght={7} />
-          <Skill name="React Query (Tanstack Query)" strenght={7} />
+          <Skill name="Pact Contract Testing" strenght={7} />
+          <Skill name="React Query" strenght={7} />
+          <Skill name="ASP.NET MVC" strenght={7} />
+          <Skill name="SQL" strenght={6} />
           <Skill name="Azure DevOps CI/CD" strenght={6} />
-          <li class="pt-2 italic text-gray-400">Decayed knowledge</li>
-          <Skill name="jQuery" />
-          <Skill name="ASP.NET MVC" />
-          <Skill name="ASP.NET" />
-          <Skill name="SQL" />
-          <Skill name="PowerShell" />
+          <Skill name=".NET (C#)" strenght={6} />
+          <Skill name="Pendo" strenght={6} />
+          <Skill name="App Insights" strenght={6} />
+          <Skill name="PowerShell" strenght={5} />
         </ul>
       </SideSection>
       <SideSection title="Toolset">
+        <span class="font-mono text-sm"
+          >Git, Babel, Tailwind, ESLint, VSCode, OSX/Windows, npm/yarn,
+          Prettier, Framer Motion, Dnd kit, Astro, Docker, Prisma, GitHub,
+          Vercel, PostgreSQL</span
+        >
+      </SideSection>
+      <SideSection title="Online">
         <ul>
-          <Skill name="Git" />
-          <Skill name="ESLint" />
-          <Skill name="Pact Contract Testing" />
-          <Skill name="Pendo" />
-          <Skill name="App Insights" />
-          <Skill name="VSCode" />
-          <Skill name="OSX/Windows" />
+          <li><a href="https://stackhouse.be">stackhouse.be</a></li>
+          <li>
+            <a href="https://github.com/ThomasStock">github.com/ThomasStock</a>
+          </li>
+          <li>
+            <a href="https://stackoverflow.com/users/72859"
+              >stackoverflow.com/users/72859</a
+            >
+          </li>
+          <li>
+            <a href="https://www.linkedin.com/in/stockthomas/"
+              >linkedin.com/in/stockthomas/</a
+            >
+          </li>
         </ul>
+      </SideSection>
+      <SideSection title="Contact Me">
+        <ul><li>thomasstock1985@gmail.com</li></ul>
       </SideSection>
     </section>
   </div>
