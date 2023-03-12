@@ -1,5 +1,6 @@
 ---
 import Company from "../components/Company.astro";
+import Education from "../components/Education.astro";
 import JobTitle from "../components/JobTitle.astro";
 import MainSection from "../components/MainSection.astro";
 import SideSection from "../components/SideSection.astro";
@@ -50,12 +51,6 @@ import Layout from "../layouts/Layout.astro";
           <li>Mentorship of juniors and new hires</li>
           <li>Conducting technical interviews for potential hires</li>
         </ul>
-        <div class="leading-tight text-gray-600 font-thin italic flex flex-row">
-          <div class="mt-[3px]">
-            I love this role but I wouldn't mind taking my skills and expertise
-            to a smaller company as the main (or only) frontend guy
-          </div>
-        </div>
       </MainSection>
       <MainSection title="Work Experience">
         <ul class="">
@@ -84,7 +79,7 @@ import Layout from "../layouts/Layout.astro";
           </li>
           <li>
             <Company name="D Soft" date={{ start: "2013", end: "2014" }}>
-              <JobTitle name="Web Developer">
+              <JobTitle name="Web & Mobile Developer">
                 ASP.NET MVC, iOS development (Xamarin), Apache Cordova/PhoneGap
               </JobTitle>
             </Company>
@@ -107,7 +102,7 @@ import Layout from "../layouts/Layout.astro";
             </Company>
           </li>
           <li>
-            <Company name="Indiegroup" date={{ start: "2006", end: "2008" }}>
+            <Company name="Indiegroup" date={{ start: "2006", end: "2007" }}>
               <JobTitle name="ASP.NET Developer">
                 ASP.NET, Telerik Controls, MS SQL 2000/2005
               </JobTitle>
@@ -119,12 +114,16 @@ import Layout from "../layouts/Layout.astro";
       <MainSection title="Education & Certifications">
         <ul class="">
           <li>
-            <Company
+            <Education
               name="Katholieke Hogeschool Sint-Lieven"
               date={{ start: "2003", end: "2006" }}
-            >
-              <JobTitle name="Bachelor, ICT" />
-            </Company>
+              title="Bachelor, ICT"
+            />
+            <Education name="Microsoft" title="MCPD: Web Developer 4" />
+            <Education
+              name="Umbraco"
+              title="Umbraco Certified Level 2 Developer"
+            />
           </li>
         </ul>
       </MainSection>
