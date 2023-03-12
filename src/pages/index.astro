@@ -9,11 +9,11 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="Thomas Stock - Freelance Frontend Engineer">
-  <div class="flex flex-col sm:flex-row max-w-7xl">
-    <div class="mx-10">
+  <div class="flex flex-col sm:flex-row max-w-6xl bg-white shadow-xl">
+    <div class="mx-10 flex flex-col">
       <div class="relative -ml-[57px] -mx-10">
         <header
-          class="mt-20 mb-12 bg-yellow-400 py-5 px-12 relative z-20 shadow"
+          class="mt-20 mb-12 bg-neutral-200 py-5 px-12 relative z-20 shadow"
         >
           <h1
             class="text-6xl lg:text-7xl mb-4 font-serif font-light text-slate-700"
@@ -31,7 +31,7 @@ import Layout from "../layouts/Layout.astro";
           </h2>
         </header>
         <div
-          class="border-transparent border-solid border-r-yellow-500 border-[17px] w-0 h-0 absolute -left-[17px] -bottom-[17px]"
+          class="border-transparent border-solid border-r-neutral-400 border-[17px] w-0 h-0 absolute -left-[17px] bottom-[31px]"
         >
         </div>
       </div>
@@ -127,22 +127,15 @@ import Layout from "../layouts/Layout.astro";
           </li>
         </ul>
       </MainSection>
-      <div
-        class="hidden sm:block text-sm text-slate-400 text-center sm:-mx-4 sm:mb-4"
-      >
+      <div class="hidden sm:block text-sm text-slate-400 text-center mb-2">
         <div>Handmade with Tailwind CSS and Astro</div>
-        <div>
-          Source @ <a href="https://github.com/ThomasStock/Resume"
-            >github.com/ThomasStock/Resume</a
-          >
-        </div>
       </div>
     </div>
     <section
       class="w-screen sm:order-first sm:w-80 bg-slate-800 min-h-screen text-slate-200 flex-shrink-0 flex-grow-0 px-10 pt-14"
     >
       <div
-        class="hidden md:block w-36 h-36 my-4 mt-4 mb-14 ml-10 rounded-full border-yellow-400 border-2 bg-[url('/t.jpeg')] bg-cover bg-center"
+        class="hidden md:block w-36 h-36 my-4 mt-4 mb-14 ml-10 rounded-full border-neutral-200 border-2 bg-[url('/t.jpeg')] bg-cover bg-center"
       >
       </div>
       <SideSection title="Skillset">
@@ -212,12 +205,6 @@ import Layout from "../layouts/Layout.astro";
         class="sm:hidden text-sm text-slate-500 text-center sm:-mx-4 sm:mb-4"
       >
         <div>Handmade with Tailwind CSS and Astro</div>
-        <div>
-          Source @ <a href="https://github.com/ThomasStock/Resume"
-            >github.com/ThomasStock/Resume</a
-          >
-        </div>
-        <div>Hosted on Vercel</div>
       </div>
     </section>
   </div>
