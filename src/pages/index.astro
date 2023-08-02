@@ -9,7 +9,7 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="Thomas Stock - Freelance Frontend Engineer">
-  <div class="flex flex-col sm:flex-row max-w-6xl bg-white shadow-xl">
+  <div class="flex flex-col md:flex-row max-w-6xl bg-white shadow-xl">
     <div class="mx-10 flex flex-col">
       <div class="relative -ml-[57px] -mx-10">
         <a
@@ -93,8 +93,11 @@ import Layout from "../layouts/Layout.astro";
         <div>Handmade with Tailwind CSS and Astro</div>
       </div>
     </div>
-    <section class="w-screen sm:order-first sm:w-96 bg-slate-800 min-h-screen text-slate-200 flex-shrink-0 flex-grow-0 px-10 pt-14">
-      <div class="w-36 h-36 my-4 mt-4 mb-14 ml-10 rounded-full border-neutral-200 border-2 bg-[url('/t.jpeg')] bg-cover bg-center"></div>
+    <section class="w-screen md:order-first md:w-96 bg-slate-800 min-h-screen text-slate-200 flex-shrink-0 flex-grow-0 px-10 pt-14">
+      <div
+        class="hidden md:block w-36 h-36 my-4 mt-4 mb-14 ml-10 rounded-full border-neutral-200 border-2 bg-[url('/t.jpeg')] bg-cover bg-center"
+      >
+      </div>
       <SideSection title="Skillset">
         <ul>
           <Skill name="React" strenght={10} />
@@ -154,7 +157,7 @@ import Layout from "../layouts/Layout.astro";
           <li>BE 0802.112.992</li>
         </ul>
       </SideSection>
-      <div class="sm:hidden text-sm text-slate-500 text-center sm:-mx-4 sm:mb-4">
+      <div class="md:hidden text-sm text-slate-500 text-center sm:-mx-4 sm:mb-4">
         <div>Handmade with Tailwind CSS and Astro</div>
       </div>
     </section>
