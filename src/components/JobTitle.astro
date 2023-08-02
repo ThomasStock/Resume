@@ -9,16 +9,16 @@ const { start, end } = date || {};
 ---
 
 <li class="mb-4">
-  <h5 class="font-lato font-bold mb-1">
+  <h5 class="font-lato text-lg font-bold mb-2">
     {name}{
       date ? (
-        <span>
+        <span class="text-sm ml-2 text-gray-400">
           ({start} - {end})
         </span>
       ) : null
     }
   </h5>
-  <p class="text-gray-500 font-light leading-snug">
+  <div class="text-gray-500 font-light">
     <slot />
-  </p>
+  </div>
 </li>

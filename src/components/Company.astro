@@ -8,14 +8,16 @@ const { name, date } = Astro.props;
 const { start, end } = date || {};
 ---
 
-<h4 class="font-lato mb-2 text-lg font-light italic text-gray-500">
-  {name}
-  {
-    date ? (
-      <span class="">
-        ({start} {end ? " - " + end : ""})
-      </span>
-    ) : null
-  }
-</h4>
-<ul class="mb-6 border-slate-500 border-l-2 ml-1 pl-4"><slot /></ul>
+<div class="border-gray-200 border-l-4 pl-8">
+  <h4 class="font-lato mb-2 text-xl font-bold text-gray-500">
+    {name}
+    {
+      date ? (
+        <span class="text-sm ml-2 text-gray-400">
+          ({start} {end ? " - " + end : ""})
+        </span>
+      ) : null
+    }
+  </h4>
+  <ul class="mb-6"><slot /></ul>
+</div>
