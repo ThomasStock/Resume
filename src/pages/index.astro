@@ -33,7 +33,14 @@ import Layout from "../layouts/Layout.astro";
         <ul class="">
           <li>
             <Company name="Peripass" date={{ start: "June 2023", end: "present" }}>
-              <JobTitle name="Freelance Front-end Developer">Test automation (Playwright), React</JobTitle>
+              <JobTitle name="Freelance Lead Front-end Developer">
+                <ul class="list-disc list-inside">
+                  <li>Transition a legacy ASP.NET MVC backend towards React</li>
+                  <li>Create a responsive kiosk/mobile web app (React SPA)</li>
+                  <li>Rewrite a legacy Xamarin app in React-Native</li>
+                  <li>Build a UI test framework (Playwright)</li>
+                </ul>
+              </JobTitle>
             </Company>
             <Company name="Aprimo" date={{ start: "2015", end: "May 2023" }}>
               <JobTitle name="Lead React Developer" date={{ start: "2021", end: "May 2023" }}>
@@ -42,7 +49,7 @@ import Layout from "../layouts/Layout.astro";
                   <li>Core architectural design</li>
                   <li>UX guidance</li>
                   <li>Final pull request reviews</li>
-                  <li>Ensuring long term project health</li>
+                  <li>Ensure long term project health</li>
                   <li>Mentorship of juniors and new hires</li>
                   <li>Technical interviews with potential hires</li>
                 </ul>
@@ -102,35 +109,33 @@ import Layout from "../layouts/Layout.astro";
         <ul>
           <Skill name="React" strenght={10} />
           <Skill name="TypeScript" strenght={10} />
-          <Skill name="JavaScript" strenght={9} />
           <Skill name="HTML / CSS" strenght={9} />
-          <Skill name="jQuery" strenght={9} />
-          <Skill name="Cypress" strenght={9} />
           <Skill name="Playwright" strenght={9} />
-          <Skill name="Material-UI (MUI)" strenght={9} />
-          <Skill name="Jest" strenght={8} />
-          <Skill name="Redux-saga" strenght={8} />
-          <Skill name="Webpack" strenght={7} />
-          <Skill name="React Testing Library" strenght={7} />
-          <Skill name="Pact Contract Testing" strenght={7} />
+          <Skill name="Shadcn/Radix" strenght={9} />
+          <Skill name="Tailwind" strenght={8} />
+          <Skill name="Svelte" strenght={8} />
+          <Skill name="Vite" strenght={8} />
+          <Skill name="SQL" strenght={8} />
+          <Skill name="Web Components" strenght={8} />
+          <Skill name="React Native" strenght={7} />
           <Skill name="React Query" strenght={7} />
-          <Skill name="ASP.NET MVC" strenght={7} />
-          <Skill name="SQL" strenght={6} />
           <Skill name="Azure DevOps CI/CD" strenght={6} />
-          <Skill name=".NET (C#)" strenght={6} />
-          <Skill name="Pendo" strenght={6} />
-          <Skill name="App Insights" strenght={6} />
-          <Skill name="Umbraco" strenght={6} />
+          <Skill name="Github CI/CD" strenght={6} />
+          <Skill name="Amplitude" strenght={6} />
           <li class="h-6"></li>
           <Skill name="Dutch" strenght={10} />
           <Skill name="English" strenght={9.5} />
         </ul>
       </SideSection>
-      <SideSection title="Toolset">
+      <SideSection title="Side Project Stack">
         <span class="font-mono text-sm"
-          >Git, Babel, Tailwind, ESLint, VSCode, OSX/Windows, npm/yarn, Prettier, Framer Motion, Dnd kit, Astro, Docker, Prisma, GitHub,
-          Vercel, PostgreSQL, PowerShell</span
+          >React, Astro, Shadcn, Tailwind, Drizzle, PostgreSQL, Supabase, Vercel, Sentry, v0, Claude</span
         >
+      </SideSection>
+      <SideSection title="Legacy skills" size="small">
+        <span class="font-mono text-sm"
+        >jQuery, Cypress, Material-UI, Jest, Redux, Redux-Saga, Webpack, Pact Contract Testing, ASP.NET MVC, C#, Pendo, Umbraco</span
+      >
       </SideSection>
       <SideSection title="Online">
         <ul class="font-lato">

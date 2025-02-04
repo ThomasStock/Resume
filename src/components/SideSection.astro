@@ -1,14 +1,16 @@
 ---
 export interface Props {
   title: string;
+  size?: 'small'
 }
 
-const { title } = Astro.props;
+const { title, size } = Astro.props;
+const extra = size === 'small' ? 'text-lg' : '';
 ---
 
-<h3 class="uppercase text-2xl font-light font-serif text-slate-400 mb-4">
+<h3 class=`uppercase text-2xl font-light font-serif text-slate-400 mb-4 ${extra}`>
   {title}
 </h3>
-<div class="mb-8 last:mb-0">
+<div class=`mb-8 last:mb-0 ${size === 'small' ? '[&_*]:text-xs' : ''}`>
   <slot />
 </div>
