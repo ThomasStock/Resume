@@ -1,10 +1,8 @@
 ---
 import Company from "../components/Company.astro";
-import Education from "../components/Education.astro";
 import JobTitle from "../components/JobTitle.astro";
 import MainSection from "../components/MainSection.astro";
 import SideSection from "../components/SideSection.astro";
-import Skill from "../components/Skill.astro";
 import Layout from "../layouts/Layout.astro";
 ---
 
@@ -35,69 +33,35 @@ import Layout from "../layouts/Layout.astro";
             <Company name="Peripass" date={{ start: "June 2023", end: "present" }}>
               <JobTitle name="Freelance Lead Front-end Developer">
                 <ul class="list-disc list-inside">
-                  <li>Transition a legacy ASP.NET MVC backend towards React</li>
-                  <li>Create a responsive kiosk/mobile web app (React SPA)</li>
-                  <li>Rewrite a legacy Xamarin app in React-Native</li>
-                  <li>Build a UI test framework (Playwright)</li>
+                  <li>Prepare codebase and team for AI-empowered development</li>
+                  <li>Front-end architecture and React development</li>
+                  <li>Playwright test automation</li>
+                  <li>React Native app development</li>
                 </ul>
               </JobTitle>
             </Company>
             <Company name="Aprimo" date={{ start: "2015", end: "May 2023" }}>
-              <JobTitle name="Lead React Developer" date={{ start: "2021", end: "May 2023" }}>
+              <JobTitle name="ASP.NET Developer -> React Developer -> Lead React Developer">
                 <ul class="list-disc list-inside">
-                  <li>Technical lead for ± 9 front-end devs</li>
-                  <li>Core architectural design</li>
-                  <li>UX guidance</li>
-                  <li>Final pull request reviews</li>
-                  <li>Ensure long term project health</li>
-                  <li>Mentorship of juniors and new hires</li>
-                  <li>Technical interviews with potential hires</li>
+                  <li>Grew into technical lead for 9 front-end developers</li>
+                  <li>Owned front-end architecture, code quality and project health</li>
+                  <li>Mentored engineers and supported technical hiring</li>
                 </ul>
               </JobTitle>
-
-              <JobTitle name="React Developer" date={{ start: "2017", end: "2021" }}>
-                React, Redux, Redux-Saga, Typescript, MUI, Webpack, Babel, Cypress, Jest
+            </Company>
+          </li>
+          <li>
+            <Company name="Earlier web & .NET developer roles" date={{ start: "2006", end: "2014" }}>
+              <JobTitle name="D Soft, Orbit One, TrustTeam, Indiegroup">
+                Product and project-based work. Web development, Windows applications, CMS implementations, kiosk/POS software and mobile apps.
               </JobTitle>
-              <JobTitle name="ASP.NET Developer" date={{ start: "2015", end: "2017" }} />
-            </Company>
-          </li>
-          <li>
-            <Company name="D Soft" date={{ start: "2013", end: "2014" }}>
-              <JobTitle name="">ASP.NET MVC, iOS development (Xamarin), Apache Cordova/PhoneGap</JobTitle>
-            </Company>
-          </li>
-          <li>
-            <Company name="Orbit One" date={{ start: "2010", end: "2012" }}>
-              <JobTitle name="">ASP.NET, Umbraco CMS, SharePoint 2010, MS Dynamics CRM 2011, MS SQL 2005-2008</JobTitle>
-            </Company>
-          </li>
-          <li>
-            <Company name="TrustTeam" date={{ start: "2008", end: "2010" }}>
-              <JobTitle name="">
-                ASP, ASP.NET, ASP.NET MVC, jQuery, MS SQL 2005/2008, WPF, WinForms, PHP, Stock management and PoS apps on barcode scanning
-                devices, Self-registration kiosk software
-              </JobTitle>
-            </Company>
-          </li>
-          <li>
-            <Company name="Indiegroup" date={{ start: "2006", end: "2007" }}>
-              <JobTitle name="">ASP.NET, Telerik Controls, MS SQL 2000/2005</JobTitle>
             </Company>
           </li>
         </ul>
       </MainSection>
 
-      <MainSection title="Education & Certifications">
-        <ul class="">
-          <li>
-            <Education name="Katholieke Hogeschool Sint-Lieven" date={{ start: "2003", end: "2006" }} title="Bachelor, ICT" />
-            <Education name="Microsoft" title="MCPD: Web Developer 4" />
-            <Education name="Umbraco" title="Umbraco Certified Level 2 Developer" />
-          </li>
-        </ul>
-      </MainSection>
-      <div class="hidden md:block text-sm text-slate-400 text-center mb-2">
-        <div>Handmade with Tailwind CSS and Astro</div>
+      <div class="mb-8 text-sm text-gray-400">
+        Education: Bachelor ICT, Katholieke Hogeschool Sint-Lieven (2003 - 2006)
       </div>
     </div>
     <section class="w-screen md:order-first md:w-96 bg-slate-800 min-h-screen text-slate-200 flex-shrink-0 flex-grow-0 px-10 pt-14">
@@ -105,38 +69,6 @@ import Layout from "../layouts/Layout.astro";
         class="hidden md:block w-36 h-36 my-4 mt-4 mb-14 ml-16 rounded-full border-neutral-200 border-2 bg-[url('/t.jpeg')] bg-cover bg-center"
       >
       </div>
-      <SideSection title="Skillset">
-        <ul>
-          <Skill name="React" strenght={10} />
-          <Skill name="TypeScript" strenght={10} />
-          <Skill name="HTML / CSS" strenght={9} />
-          <Skill name="Playwright" strenght={9} />
-          <Skill name="Shadcn/Radix" strenght={9} />
-          <Skill name="Tailwind" strenght={8} />
-          <Skill name="Svelte" strenght={8} />
-          <Skill name="Vite" strenght={8} />
-          <Skill name="SQL" strenght={8} />
-          <Skill name="Web Components" strenght={8} />
-          <Skill name="React Native" strenght={7} />
-          <Skill name="React Query" strenght={7} />
-          <Skill name="Azure DevOps CI/CD" strenght={6} />
-          <Skill name="Github CI/CD" strenght={6} />
-          <Skill name="Amplitude" strenght={6} />
-          <li class="h-6"></li>
-          <Skill name="Dutch" strenght={10} />
-          <Skill name="English" strenght={9.5} />
-        </ul>
-      </SideSection>
-      <SideSection title="Side Project Stack">
-        <span class="font-mono text-sm"
-          >React, Astro, Shadcn, Tailwind, Drizzle, PostgreSQL, Supabase, Vercel, Sentry, v0, Claude</span
-        >
-      </SideSection>
-      <SideSection title="Legacy skills" size="small">
-        <span class="font-mono text-sm"
-        >jQuery, Cypress, Material-UI, Jest, Redux, Redux-Saga, Webpack, Pact Contract Testing, ASP.NET MVC, C#, Pendo, Umbraco</span
-      >
-      </SideSection>
       <SideSection title="Online">
         <ul class="font-lato">
           <li class="pb-1">
@@ -149,22 +81,41 @@ import Layout from "../layouts/Layout.astro";
             <a href="https://stackoverflow.com/users/72859">stackoverflow.com/users/72859</a>
           </li>
           <li class="pb-1">
-            <a href="https://www.linkedin.com/in/stockthomas/">linkedin.com/in/stockthomas/</a>
+            <a href="https://www.linkedin.com/in/stockthomas/">linkedin.com/in/stockthomas</a>
           </li>
         </ul>
       </SideSection>
-      <SideSection title="Interested?">
+      <SideSection title="Contact">
         <ul class="font-lato">
           <li class="mb-4">
-            <a href="mailto:thomasstock1985@gmail.com<">thomasstock1985@gmail.com</a>
+            <a href="mailto:thomasstock1985@gmail.com">thomasstock1985@gmail.com</a>
           </li>
           <li>Stackhouse BV</li>
           <li>BE 0802.112.992</li>
         </ul>
       </SideSection>
-      <div class="md:hidden text-sm text-slate-500 text-center sm:-mx-4 sm:mb-4">
-        <div>Handmade with Tailwind CSS and Astro</div>
-      </div>
+      <SideSection title="Keywords" size="small">
+        <div class="space-y-5 font-mono text-sm text-slate-200">
+          <div>
+            <h4 class="mb-2 font-lato text-sm font-bold uppercase text-slate-400">Stuff I'm great at</h4>
+            <p>
+              React, TypeScript, front-end architecture, design systems, HTML, CSS, Playwright, React Native, web performance, UX.
+            </p>
+          </div>
+          <div>
+            <h4 class="mb-2 font-lato text-sm font-bold uppercase text-slate-400">Stuff I worked with</h4>
+            <p>
+              C#, SQL, PostgreSQL, Azure DevOps, GitHub Actions, Vite, Tailwind CSS, Redux, React Query, Jest, Cypress, Material UI,
+              Webpack, Sentry, Svelte, Vercel, Supabase, Shadcn/Radix, ASP.NET MVC, Pact, Pendo, Amplitude, Babel, Drizzle,
+              Redux-Saga, jQuery, Umbraco.
+            </p>
+          </div>
+          <div>
+            <h4 class="mb-2 font-lato text-sm font-bold uppercase text-slate-400">Languages</h4>
+            <p>Dutch, English.</p>
+          </div>
+        </div>
+      </SideSection>
     </section>
   </div>
 </Layout>
