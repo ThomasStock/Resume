@@ -17,7 +17,7 @@ export const person = {
   role: "Lead Front-end Engineer",
   engagement: "Freelance",
   startYear: 2006,
-  location: { label: "Belgium", countryCode: "BE", remote: true },
+  location: { label: "Belgium", countryCode: "BE", mode: "remote/hybrid" },
   // TODO(thomas): e.g. "Available from January 2027". Rendered only when set.
   availability: null as string | null,
   email: "thomasstock1985@gmail.com",
@@ -193,6 +193,4 @@ export const moreSkills = [
 /** Every role, newest first, including the condensed early ones. */
 export const allRoles = (): Role[] => [...experience, ...earlier.roles];
 
-export const locationLabel = person.location.remote
-  ? `${person.location.label}, remote`
-  : person.location.label;
+export const locationLabel = `${person.location.label}, ${person.location.mode}`;
