@@ -10,8 +10,8 @@ import { person, summaryParts, yearsOfExperience } from "../data/resume";
 ---
 
 <Layout title={`${person.name}, ${person.role}`} description={summaryParts(yearsOfExperience)[0]}>
-  <Actions />
   <main class="page">
+    <Actions />
     <Header />
     <Now />
     <Experience />

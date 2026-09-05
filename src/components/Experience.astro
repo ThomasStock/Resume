@@ -50,21 +50,20 @@ import { formatPeriod } from "../lib/format";
 
 <style>
   .job + .job {
-    margin-top: 1.9rem;
+    margin-top: 2rem;
   }
 
   .head {
     display: flex;
     justify-content: space-between;
     align-items: baseline;
-    gap: 1rem;
+    gap: 0.25rem 1rem;
     flex-wrap: wrap;
   }
 
   h3 {
-    font-size: 1.125rem;
+    font-size: 1.0625rem;
     font-weight: 600;
-    letter-spacing: -0.01em;
   }
 
   .period {
@@ -77,7 +76,7 @@ import { formatPeriod } from "../lib/format";
   .title {
     color: var(--fg-2);
     font-weight: 500;
-    margin: 0.1rem 0 0.6rem;
+    margin: 0.15rem 0 0.65rem;
   }
 
   .subtitle {
@@ -88,7 +87,7 @@ import { formatPeriod } from "../lib/format";
   ul {
     padding-left: 1.1rem;
     display: grid;
-    gap: 0.3rem;
+    gap: 0.35rem;
     color: var(--fg-2);
   }
 
@@ -97,24 +96,36 @@ import { formatPeriod } from "../lib/format";
   }
 
   .stack {
-    margin-top: 0.6rem;
+    margin-top: 0.65rem;
     font-size: 0.875rem;
     color: var(--muted);
   }
 
   details {
-    margin-top: 0.4rem;
+    margin-top: 0.5rem;
     font-size: 0.9375rem;
   }
 
+  /* The disclosure reads as a link: same underline and hover as every other interactive text. */
   summary {
     cursor: pointer;
     color: var(--muted);
     width: fit-content;
+    text-decoration: underline;
+    text-decoration-color: var(--rule);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.18em;
+    transition: color 0.15s, text-decoration-color 0.15s;
+  }
+
+  summary::marker {
+    color: var(--muted);
+    font-size: 0.75em;
   }
 
   summary:hover {
     color: var(--fg);
+    text-decoration-color: var(--accent);
   }
 
   .earlier {
@@ -131,15 +142,15 @@ import { formatPeriod } from "../lib/format";
 
   @media print {
     .job + .job {
-      margin-top: 0.85rem;
+      margin-top: 0.8rem;
     }
 
     h3 {
-      font-size: 1.1rem;
+      font-size: 1.0625rem;
     }
 
     .title {
-      margin-bottom: 0.3rem;
+      margin-bottom: 0.25rem;
     }
 
     ul {
@@ -147,7 +158,7 @@ import { formatPeriod } from "../lib/format";
     }
 
     .stack {
-      margin-top: 0.3rem;
+      margin-top: 0.25rem;
     }
   }
 </style>

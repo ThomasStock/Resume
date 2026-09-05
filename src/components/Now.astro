@@ -8,50 +8,34 @@ import { inlineHtml } from "../lib/inline";
 <Section id="now" title="Now" accent>
   <time slot="side" datetime={now.updated} class="updated">Updated {formatMonthShort(now.updated)}</time>
   <ul class="now">
-    {now.items.map((item) => (
-      <li>
-        <span set:html={inlineHtml(item)} />
-      </li>
-    ))}
+    {now.items.map((item) => <li set:html={inlineHtml(item)} />)}
   </ul>
 </Section>
 
 <style>
   .updated {
-    font-size: 0.75rem;
+    font-size: 0.8125rem;
+    white-space: nowrap;
     color: var(--muted);
     font-variant-numeric: tabular-nums;
   }
 
+  /* Plain list markers keep PDF text in reading order; the accent marks this block as the live one. */
   .now {
-    list-style: none;
+    padding-left: 1.1rem;
     display: grid;
-    gap: 0.6rem;
+    gap: 0.5rem;
     font-size: 1.0625rem;
     line-height: 1.5;
   }
 
-  /* Bullet as a grid cell, not a positioned pseudo-element: keeps PDF text in reading order.
-     Content sits in one span so inline markup does not become extra grid items. */
-  .now li {
-    display: grid;
-    grid-template-columns: 0.4em minmax(0, 1fr);
-    column-gap: 0.75em;
-    align-items: start;
-  }
-
-  .now li::before {
-    content: "";
-    width: 0.4em;
-    height: 0.4em;
-    margin-top: 0.55em;
-    border-radius: 50%;
-    background: var(--accent);
+  .now li::marker {
+    color: var(--accent);
   }
 
   @media print {
     .now {
-      gap: 0.2rem;
+      gap: 0.15rem;
       font-size: 1rem;
     }
   }

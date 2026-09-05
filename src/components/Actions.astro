@@ -25,42 +25,32 @@
 
 <style>
   .actions {
-    position: fixed;
-    top: 1.25rem;
-    right: 1.25rem;
-    z-index: 10;
     display: flex;
-    gap: 0.4rem;
+    justify-content: flex-end;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
   }
 
+  /* Plain text links, styled like every other link on the page. Vertical padding keeps the hit area at 44px. */
   .actions a,
   .actions button {
     font: inherit;
-    font-size: 0.8rem;
-    font-weight: 500;
-    line-height: 1;
-    padding: 0.55rem 0.85rem;
-    border: 1px solid var(--rule);
-    border-radius: 999px;
-    background: color-mix(in srgb, var(--bg) 88%, transparent);
-    backdrop-filter: blur(10px);
-    color: var(--fg-2);
-    text-decoration: none;
+    font-size: 0.875rem;
+    color: var(--muted);
+    background: none;
+    border: 0;
+    padding: 0.75rem 0;
     cursor: pointer;
-    transition: border-color 0.15s, color 0.15s;
+    text-decoration: underline;
+    text-decoration-color: var(--rule);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.18em;
+    transition: color 0.15s, text-decoration-color 0.15s;
   }
 
   .actions a:hover,
   .actions button:hover {
-    border-color: var(--accent);
     color: var(--fg);
-  }
-
-  @media (max-width: 640px) {
-    .actions {
-      position: static;
-      padding: 1rem 1.5rem 0;
-      flex-wrap: wrap;
-    }
+    text-decoration-color: var(--accent);
   }
 </style>

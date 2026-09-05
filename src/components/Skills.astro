@@ -8,39 +8,42 @@ import { coreSkills, moreSkills } from "../data/resume";
     {coreSkills.map((s) => <span>{s}</span>)}
   </p>
   <p class="more">
-    <span class="more-label">Also worked with</span>
-    {moreSkills.join(", ")}
+    <span class="more-label">Also worked with</span>{" "}{moreSkills.join(", ")}
   </p>
 </Section>
 
 <style>
+  /* Wrapping happens between items, never inside one, and the separator trails its item. */
   .core {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 0.45em;
     font-size: 1.0625rem;
     font-weight: 500;
     line-height: 1.65;
-    letter-spacing: -0.005em;
   }
 
-  .core span + span::before {
-    content: " · ";
+  .core span {
+    white-space: nowrap;
+  }
+
+  .core span:not(:last-child)::after {
+    content: " ·";
     color: var(--muted);
     font-weight: 400;
   }
 
   .more {
-    margin-top: 0.9rem;
+    margin-top: 1rem;
     color: var(--muted);
     font-size: 0.9375rem;
     line-height: 1.6;
   }
 
+  /* Run-in lead: "Also worked with Astro, Vite, ..." reads as one sentence. */
   .more-label {
-    display: block;
-    font-size: 0.7rem;
-    font-weight: 600;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    margin-bottom: 0.2rem;
+    color: var(--fg-2);
+    font-weight: 500;
   }
 
   @media print {
@@ -50,7 +53,7 @@ import { coreSkills, moreSkills } from "../data/resume";
 
     .more {
       margin-top: 0.4rem;
-      font-size: 0.85rem;
+      font-size: 0.875rem;
       line-height: 1.45;
     }
   }
