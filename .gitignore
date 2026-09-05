@@ -1,7 +1,5 @@
 # build output
 dist/
-
-# generated types
 .astro/
 
 # dependencies
@@ -17,5 +15,7 @@ pnpm-debug.log*
 .env
 .env.production
 
-# macOS-specific files
+# local tooling
 .DS_Store
+.claude/settings.local.json
+test-results/

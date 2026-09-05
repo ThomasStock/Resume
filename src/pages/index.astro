@@ -1,121 +1,21 @@
 ---
-import Company from "../components/Company.astro";
-import JobTitle from "../components/JobTitle.astro";
-import MainSection from "../components/MainSection.astro";
-import SideSection from "../components/SideSection.astro";
 import Layout from "../layouts/Layout.astro";
+import Actions from "../components/Actions.astro";
+import Header from "../components/Header.astro";
+import Now from "../components/Now.astro";
+import Experience from "../components/Experience.astro";
+import Skills from "../components/Skills.astro";
+import Footer from "../components/Footer.astro";
+import { person, summaryParts, yearsOfExperience } from "../data/resume";
 ---
 
-<Layout title="Thomas Stock - Freelance Frontend Engineer">
-  <div class="flex flex-col md:flex-row max-w-6xl bg-white shadow-xl">
-    <div class="mx-10 flex flex-col">
-      <div class="relative -ml-[57px] -mx-10">
-        <a
-          class="print:hidden absolute -top-3 pt-3 right-6 p-1 px-3 rounded-xl z-50 flex text-sm border-yellow-500 border-2 bg-neutral-50 font-mono"
-          href="/ThomasStock.pdf"
-          ><span class="material-symbols-outlined text-md"> download</span><span class="self-end ml-1">ThomasStock.pdf</span></a
-        >
-        <header class="mt-20 mb-12 bg-neutral-200 py-5 px-12 relative z-20 shadow">
-          <h1 class="text-6xl lg:text-7xl mb-4 font-serif font-light text-slate-700">
-            <span class="font-semibold">Thomas</span> Stock
-          </h1>
-          <h2 class="text-2xl font-serif text-slate-800 font-thin">
-            <span class="text-3xl text-slate-700 font-normal">Frontend Developer</span> with
-            <span class="text-slate-600 font-normal w-full">18 years of experience</span>
-            and a passion for <span class="text-slate-600 font-normal">UX</span>
-          </h2>
-        </header>
-        <div class="border-transparent border-solid border-r-neutral-400 border-[17px] w-0 h-0 absolute -left-[17px] bottom-[31px]"></div>
-      </div>
-      <MainSection title="Work Experience">
-        <ul class="">
-          <li>
-            <Company name="Peripass" date={{ start: "June 2023", end: "present" }}>
-              <JobTitle name="Freelance Lead Front-end Developer">
-                <ul class="list-disc list-inside">
-                  <li>Prepare codebase and team for AI-empowered development</li>
-                  <li>Front-end architecture and React development</li>
-                  <li>Playwright test automation</li>
-                  <li>React Native app development</li>
-                </ul>
-              </JobTitle>
-            </Company>
-            <Company name="Aprimo" date={{ start: "2015", end: "May 2023" }}>
-              <JobTitle name="ASP.NET Developer -> React Developer -> Lead React Developer">
-                <ul class="list-disc list-inside">
-                  <li>Grew into technical lead for 9 front-end developers</li>
-                  <li>Owned front-end architecture, code quality and project health</li>
-                  <li>Mentored engineers and supported technical hiring</li>
-                </ul>
-              </JobTitle>
-            </Company>
-          </li>
-          <li>
-            <Company name="Earlier web & .NET developer roles" date={{ start: "2006", end: "2014" }}>
-              <JobTitle name="D Soft, Orbit One, TrustTeam, Indiegroup">
-                Product and project-based work. Web development, Windows applications, CMS implementations, kiosk/POS software and mobile apps.
-              </JobTitle>
-            </Company>
-          </li>
-        </ul>
-      </MainSection>
-
-      <div class="mb-8 text-sm text-gray-400">
-        Education: Bachelor ICT, Katholieke Hogeschool Sint-Lieven (2003 - 2006)
-      </div>
-    </div>
-    <section class="w-screen md:order-first md:w-96 bg-slate-800 min-h-screen text-slate-200 flex-shrink-0 flex-grow-0 px-10 pt-14">
-      <div
-        class="hidden md:block w-36 h-36 my-4 mt-4 mb-14 ml-16 rounded-full border-neutral-200 border-2 bg-[url('/t.jpeg')] bg-cover bg-center"
-      >
-      </div>
-      <SideSection title="Online">
-        <ul class="font-lato">
-          <li class="pb-1">
-            <a href="https://stackhouse.be">stackhouse.be</a>
-          </li>
-          <li class="pb-1">
-            <a href="https://github.com/ThomasStock">github.com/ThomasStock</a>
-          </li>
-          <li class="pb-1">
-            <a href="https://stackoverflow.com/users/72859">stackoverflow.com/users/72859</a>
-          </li>
-          <li class="pb-1">
-            <a href="https://www.linkedin.com/in/stockthomas/">linkedin.com/in/stockthomas</a>
-          </li>
-        </ul>
-      </SideSection>
-      <SideSection title="Contact">
-        <ul class="font-lato">
-          <li class="mb-4">
-            <a href="mailto:thomasstock1985@gmail.com">thomasstock1985@gmail.com</a>
-          </li>
-          <li>Stackhouse BV</li>
-          <li>BE 0802.112.992</li>
-        </ul>
-      </SideSection>
-      <SideSection title="Keywords" size="small">
-        <div class="space-y-5 font-mono text-sm text-slate-200">
-          <div>
-            <h4 class="mb-2 font-lato text-sm font-bold uppercase text-slate-400">Stuff I'm great at</h4>
-            <p>
-              React, TypeScript, front-end architecture, design systems, HTML, CSS, Playwright, React Native, web performance, UX.
-            </p>
-          </div>
-          <div>
-            <h4 class="mb-2 font-lato text-sm font-bold uppercase text-slate-400">Stuff I worked with</h4>
-            <p>
-              C#, SQL, PostgreSQL, Azure DevOps, GitHub Actions, Vite, Tailwind CSS, Redux, React Query, Jest, Cypress, Material UI,
-              Webpack, Sentry, Svelte, Vercel, Supabase, Shadcn/Radix, ASP.NET MVC, Pact, Pendo, Amplitude, Babel, Drizzle,
-              Redux-Saga, jQuery, Umbraco.
-            </p>
-          </div>
-          <div>
-            <h4 class="mb-2 font-lato text-sm font-bold uppercase text-slate-400">Languages</h4>
-            <p>Dutch, English.</p>
-          </div>
-        </div>
-      </SideSection>
-    </section>
-  </div>
+<Layout title={`${person.name}, ${person.role}`} description={summaryParts(yearsOfExperience)[0]}>
+  <Actions />
+  <main class="page">
+    <Header />
+    <Now />
+    <Experience />
+    <Skills />
+    <Footer />
+  </main>
 </Layout>

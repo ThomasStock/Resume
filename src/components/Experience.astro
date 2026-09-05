@@ -1,0 +1,153 @@
+---
+import Section from "./Section.astro";
+import { earlier, experience } from "../data/resume";
+import { formatPeriod } from "../lib/format";
+---
+
+<Section id="experience" title="Experience">
+  {
+    experience.map((job) => (
+      <article class="job">
+        <div class="head">
+          <h3>{job.url ? <a href={job.url} rel="noopener">{job.company}</a> : job.company}</h3>
+          <span class="period">{formatPeriod(job.start, job.end)}</span>
+        </div>
+        <p class="title">
+          {job.title}
+          {job.subtitle && <span class="subtitle"> · {job.subtitle}</span>}
+        </p>
+        <ul>
+          {job.bullets.map((b) => <li>{b}</li>)}
+        </ul>
+        {job.stack && <p class="stack">{job.stack.join(", ")}</p>}
+      </article>
+    ))
+  }
+
+  <article class="job">
+    <div class="head">
+      <h3>{earlier.heading}</h3>
+      <span class="period">{formatPeriod(earlier.start, earlier.end)}</span>
+    </div>
+    <p class="title subtitle">{earlier.summary}</p>
+    <details class="screen-only">
+      <summary>{earlier.roles.map((r) => r.company).join(", ")}</summary>
+      <ul class="earlier">
+        {
+          earlier.roles.map((r) => (
+            <li>
+              <b>{r.company}</b> <span class="period">{formatPeriod(r.start, r.end)}</span>
+              <br />
+              {[...r.bullets, ...(r.stack ?? [])].join(", ")}
+            </li>
+          ))
+        }
+      </ul>
+    </details>
+    <p class="print-only stack">{earlier.roles.map((r) => r.company).join(", ")}</p>
+  </article>
+</Section>
+
+<style>
+  .job + .job {
+    margin-top: 1.9rem;
+  }
+
+  .head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  h3 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+
+  .period {
+    font-size: 0.875rem;
+    color: var(--muted);
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+  }
+
+  .title {
+    color: var(--fg-2);
+    font-weight: 500;
+    margin: 0.1rem 0 0.6rem;
+  }
+
+  .subtitle {
+    color: var(--muted);
+    font-weight: 400;
+  }
+
+  ul {
+    padding-left: 1.1rem;
+    display: grid;
+    gap: 0.3rem;
+    color: var(--fg-2);
+  }
+
+  li::marker {
+    color: var(--muted);
+  }
+
+  .stack {
+    margin-top: 0.6rem;
+    font-size: 0.875rem;
+    color: var(--muted);
+  }
+
+  details {
+    margin-top: 0.4rem;
+    font-size: 0.9375rem;
+  }
+
+  summary {
+    cursor: pointer;
+    color: var(--muted);
+    width: fit-content;
+  }
+
+  summary:hover {
+    color: var(--fg);
+  }
+
+  .earlier {
+    list-style: none;
+    padding: 0;
+    margin-top: 0.75rem;
+    gap: 0.6rem;
+  }
+
+  .earlier b {
+    font-weight: 600;
+    color: var(--fg);
+  }
+
+  @media print {
+    .job + .job {
+      margin-top: 0.85rem;
+    }
+
+    h3 {
+      font-size: 1.1rem;
+    }
+
+    .title {
+      margin-bottom: 0.3rem;
+    }
+
+    ul {
+      gap: 0.1rem;
+    }
+
+    .stack {
+      margin-top: 0.3rem;
+    }
+  }
+</style>
