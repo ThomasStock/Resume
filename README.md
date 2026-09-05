@@ -28,4 +28,4 @@ npm run check                     # astro check
 
 ## Deploying
 
-The build needs Chromium for the PDF and og.png step. On GitHub Actions the workflow in `.github/workflows/ci.yml` installs it. On a hosting provider, set the install command to `npm ci && npx playwright install chromium`. If the provider's build image cannot launch Chromium, use `npm run build:web` there and let CI produce the PDF.
+The build needs Chromium for the PDF and og.png step. On GitHub Actions the workflow in `.github/workflows/ci.yml` installs it with `--with-deps`. On Vercel, `vercel.json` first installs the shared libraries Chromium needs with `dnf` (the build image is Amazon Linux 2023 and ships without them), then runs `npm ci && npx playwright install chromium`. On another provider, do the equivalent: install those libraries, then `npm ci && npx playwright install chromium`. If the provider's build image cannot launch Chromium at all, use `npm run build:web` there and let CI produce the PDF.

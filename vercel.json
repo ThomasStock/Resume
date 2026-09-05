@@ -1,6 +1,6 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "installCommand": "npm ci && npx playwright install chromium",
+  "installCommand": "dnf install -y alsa-lib at-spi2-atk at-spi2-core atk cairo cups-libs dbus-libs glib2 libdrm libX11 libxcb libXcomposite libXdamage libXext libXfixes libxkbcommon libXrandr mesa-libgbm nspr nss pango && npm ci && npx playwright install chromium",
   "buildCommand": "npm run build",
   "outputDirectory": "dist"
 }
