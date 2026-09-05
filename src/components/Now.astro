@@ -1,0 +1,42 @@
+---
+import Section from "./Section.astro";
+import { now } from "../data/resume";
+import { formatMonthShort } from "../lib/format";
+import { inlineHtml } from "../lib/inline";
+---
+
+<Section id="now" title="Now" accent>
+  <time slot="side" datetime={now.updated} class="updated">Updated {formatMonthShort(now.updated)}</time>
+  <ul class="now">
+    {now.items.map((item) => <li set:html={inlineHtml(item)} />)}
+  </ul>
+</Section>
+
+<style>
+  .updated {
+    font-size: 0.8125rem;
+    white-space: nowrap;
+    color: var(--muted);
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* Plain list markers keep PDF text in reading order; the accent marks this block as the live one. */
+  .now {
+    padding-left: 1.1rem;
+    display: grid;
+    gap: 0.5rem;
+    font-size: 1.0625rem;
+    line-height: 1.5;
+  }
+
+  .now li::marker {
+    color: var(--accent);
+  }
+
+  @media print {
+    .now {
+      gap: 0.15rem;
+      font-size: 1rem;
+    }
+  }
+</style>

@@ -1,0 +1,60 @@
+---
+import Section from "./Section.astro";
+import { coreSkills, moreSkills } from "../data/resume";
+---
+
+<Section id="skills" title="Skills">
+  <p class="core">
+    {coreSkills.map((s) => <span>{s}</span>)}
+  </p>
+  <p class="more">
+    <span class="more-label">Also worked with</span>{" "}{moreSkills.join(", ")}
+  </p>
+</Section>
+
+<style>
+  /* Wrapping happens between items, never inside one, and the separator trails its item. */
+  .core {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 0.45em;
+    font-size: 1.0625rem;
+    font-weight: 500;
+    line-height: 1.65;
+  }
+
+  .core span {
+    white-space: nowrap;
+  }
+
+  .core span:not(:last-child)::after {
+    content: " ·";
+    color: var(--muted);
+    font-weight: 400;
+  }
+
+  .more {
+    margin-top: 1rem;
+    color: var(--muted);
+    font-size: 0.9375rem;
+    line-height: 1.6;
+  }
+
+  /* Run-in lead: "Also worked with Astro, Vite, ..." reads as one sentence. */
+  .more-label {
+    color: var(--fg-2);
+    font-weight: 500;
+  }
+
+  @media print {
+    .core {
+      font-size: 1rem;
+    }
+
+    .more {
+      margin-top: 0.4rem;
+      font-size: 0.875rem;
+      line-height: 1.45;
+    }
+  }
+</style>

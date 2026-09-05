@@ -1,0 +1,66 @@
+---
+import Section from "./Section.astro";
+import { person } from "../data/resume";
+import { formatPeriod } from "../lib/format";
+
+const education = person.education[0];
+---
+
+<footer>
+  <Section id="background" title="Background">
+    <dl class="facts">
+      <div>
+        <dt>Education</dt>
+        <dd>{education.studyType} {education.area}, {education.institution}, {formatPeriod(education.start, education.end)}</dd>
+      </div>
+      <div>
+        <dt>Languages</dt>
+        <dd>{person.languages.map((l) => `${l.language} (${l.fluency.toLowerCase()})`).join(", ")}</dd>
+      </div>
+      <div>
+        <dt>Business</dt>
+        <dd>{person.business.name} · {person.business.vat}</dd>
+      </div>
+    </dl>
+  </Section>
+</footer>
+
+<style>
+  .facts {
+    display: grid;
+    gap: 0.6rem;
+  }
+
+  .facts div {
+    display: grid;
+    grid-template-columns: 6.5rem minmax(0, 1fr);
+    gap: 1rem;
+  }
+
+  dt {
+    color: var(--muted);
+    font-size: 0.875rem;
+    padding-top: 0.1rem;
+  }
+
+  dd {
+    color: var(--fg-2);
+  }
+
+  @media (max-width: 640px) {
+    .facts div {
+      grid-template-columns: 1fr;
+      gap: 0.1rem;
+    }
+  }
+
+  @media print {
+    .facts {
+      gap: 0.15rem;
+    }
+
+    .facts div {
+      grid-template-columns: 5.5rem minmax(0, 1fr);
+    }
+  }
+</style>

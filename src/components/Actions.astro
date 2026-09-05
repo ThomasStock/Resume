@@ -1,0 +1,56 @@
+---
+/* Format switcher. Only client-side script on the site: copy /resume.md to the clipboard. */
+---
+
+<nav class="actions screen-only" aria-label="Other formats">
+  <a href="/ThomasStock.pdf" download>PDF</a>
+  <button type="button" data-copy-markdown>Copy as Markdown</button>
+</nav>
+
+<script>
+  const button = document.querySelector<HTMLButtonElement>("[data-copy-markdown]");
+  button?.addEventListener("click", async () => {
+    const label = button.textContent;
+    try {
+      const markdown = await fetch("/resume.md").then((r) => r.text());
+      await navigator.clipboard.writeText(markdown);
+      button.textContent = "Copied";
+    } catch {
+      window.location.href = "/resume.md";
+      return;
+    }
+    setTimeout(() => (button.textContent = label), 1600);
+  });
+</script>
+
+<style>
+  .actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  /* Plain text links, styled like every other link on the page. Vertical padding keeps the hit area at 44px. */
+  .actions a,
+  .actions button {
+    font: inherit;
+    font-size: 0.875rem;
+    color: var(--muted);
+    background: none;
+    border: 0;
+    padding: 0.75rem 0;
+    cursor: pointer;
+    text-decoration: underline;
+    text-decoration-color: var(--rule);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.18em;
+    transition: color 0.15s, text-decoration-color 0.15s;
+  }
+
+  .actions a:hover,
+  .actions button:hover {
+    color: var(--fg);
+    text-decoration-color: var(--accent);
+  }
+</style>

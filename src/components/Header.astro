@@ -1,0 +1,149 @@
+---
+import { Image } from "astro:assets";
+import photo from "../assets/thomas.jpeg";
+import { locationLabel, person, site, summary, yearsOfExperience } from "../data/resume";
+
+const host = site.url.replace(/^https?:\/\//, "");
+---
+
+<header class="header">
+  <div class="identity">
+    <Image
+      src={photo}
+      alt={`Portrait of ${person.name}`}
+      width={80}
+      height={80}
+      densities={[1, 2, 3]}
+      loading="eager"
+      class="photo"
+    />
+    <div>
+      <h1 class="name">{person.name}</h1>
+      <p class="role">{person.engagement} · {person.role}</p>
+    </div>
+  </div>
+
+  <p class="summary">{summary(yearsOfExperience)}</p>
+
+  <address class="meta">
+    <span>{locationLabel}</span>
+    {person.availability && <span class="availability">{person.availability}</span>}
+    <a href={`mailto:${person.email}`}>{person.email}</a>
+    {person.profiles.map((p) => <a href={p.url} rel="me noopener">{p.network}</a>)}
+    <a href={site.url} class="print-only-inline">{host}</a>
+  </address>
+</header>
+
+<style>
+  .header {
+    padding-bottom: 2.5rem;
+  }
+
+  .identity {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .photo {
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+    object-fit: cover;
+    flex: none;
+  }
+
+  /* Name first, role under it. Fixed steps per breakpoint, no fluid clamp. */
+  .name {
+    font-family: var(--font-serif);
+    font-weight: 400;
+    font-size: 4.75rem;
+    line-height: 0.95;
+    letter-spacing: -0.015em;
+  }
+
+  .role {
+    margin-top: 0.45rem;
+    font-size: 1.125rem;
+    font-weight: 500;
+    line-height: 1.35;
+  }
+
+  .summary {
+    color: var(--fg-2);
+    font-size: 1.0625rem;
+    line-height: 1.6;
+    max-width: 60ch;
+    margin-bottom: 1.5rem;
+  }
+
+  .meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem 1.25rem;
+    font-style: normal;
+    font-size: 0.875rem;
+    color: var(--muted);
+  }
+
+  .availability {
+    color: var(--accent);
+    font-weight: 500;
+  }
+
+  @media (max-width: 640px) {
+    .identity {
+      align-items: flex-start;
+      flex-direction: column;
+      gap: 1.25rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .name {
+      font-size: 3rem;
+    }
+
+    .role {
+      font-size: 1rem;
+      margin-top: 0.35rem;
+    }
+  }
+
+  @media print {
+    .header {
+      padding-bottom: 0.7rem;
+    }
+
+    .identity {
+      gap: 1rem;
+      margin-bottom: 0.7rem;
+    }
+
+    .photo {
+      width: 3.4rem;
+      height: 3.4rem;
+    }
+
+    .name {
+      font-size: 2.6rem;
+    }
+
+    .role {
+      font-size: 1rem;
+      margin-top: 0.2rem;
+    }
+
+    .summary {
+      font-size: 1rem;
+      line-height: 1.4;
+      max-width: 72ch;
+      margin-bottom: 0.45rem;
+    }
+
+    .meta {
+      font-size: 0.875rem;
+      gap: 0.2rem 0.9rem;
+    }
+  }
+</style>
