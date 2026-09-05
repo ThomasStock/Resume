@@ -44,11 +44,11 @@ export const person = {
 
 export const yearsOfExperience = new Date().getFullYear() - person.startYear;
 
-// TODO(thomas): confirm wording of the second sentence.
+
 /** Two sentences. The first doubles as meta description and Open Graph text. */
 export const summaryParts = (years: number): [string, string] => [
   `Product-minded front-end lead with ${years} years of shipping web software, from .NET to React.`,
-  `I own architecture, grow teams and set the conventions that keep a codebase healthy when humans and AI both write the code.`,
+  `I own the front-end, grow teams and help them ship fast without letting the codebase rot, whether humans or AI write the code.`,
 ];
 
 export const summary = (years: number) => summaryParts(years).join(" ");
