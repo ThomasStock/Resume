@@ -17,7 +17,7 @@ export const person = {
   role: "Lead Front-end Engineer",
   engagement: "Freelance",
   startYear: 2006,
-  location: { label: "Belgium", countryCode: "BE", remote: true },
+  location: { label: "Belgium", countryCode: "BE", mode: "remote/hybrid" },
   // TODO(thomas): e.g. "Available from January 2027". Rendered only when set.
   availability: null as string | null,
   email: "thomasstock1985@gmail.com",
@@ -44,11 +44,11 @@ export const person = {
 
 export const yearsOfExperience = new Date().getFullYear() - person.startYear;
 
-// TODO(thomas): confirm wording of the second sentence.
+
 /** Two sentences. The first doubles as meta description and Open Graph text. */
 export const summaryParts = (years: number): [string, string] => [
   `Product-minded front-end lead with ${years} years of shipping web software, from .NET to React.`,
-  `I own architecture, grow teams and set the conventions that keep a codebase healthy when humans and AI both write the code.`,
+  `I own the front-end, grow teams and help them ship fast without letting the codebase rot, whether humans or AI write the code.`,
 ];
 
 export const summary = (years: number) => summaryParts(years).join(" ");
@@ -193,6 +193,4 @@ export const moreSkills = [
 /** Every role, newest first, including the condensed early ones. */
 export const allRoles = (): Role[] => [...experience, ...earlier.roles];
 
-export const locationLabel = person.location.remote
-  ? `${person.location.label}, remote`
-  : person.location.label;
+export const locationLabel = `${person.location.label}, ${person.location.mode}`;
