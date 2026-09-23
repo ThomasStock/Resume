@@ -1,0 +1,122 @@
+/* Essential. Columns flow independently so sidebar height never
+   stretches the gaps between the main sections. Print uses the shared CV. */
+.design {
+  --ground:#eae9e5; --paper:#fff; --sheet:#f5f4f1; --ink:#302f2c;
+  --muted:#696760; --line:#e5e3de; --accent:#514e46; --tint:#f3f1ec;
+  --radius:.8rem; --space:1.25rem;
+  color:var(--ink); background:var(--ground); min-height:100vh;
+  padding:2.5rem 0 3rem; color-scheme:light; font-family:Arial, Helvetica, sans-serif; font-size:.875rem; line-height:1.6;
+}
+.design a { text-decoration-color:var(--line); }
+.design a:hover { color:var(--accent); text-decoration-color:currentColor; }
+.design :focus-visible { outline-color:var(--accent); }
+.resume-sheet { max-width:71rem; margin:auto; padding:2rem; }
+.profile { display:grid; grid-template-columns:8rem minmax(0,1fr) auto; align-items:center; gap:1.5rem; padding:.5rem 0 2.1rem; }
+.portrait { width:8rem; height:8rem; object-fit:cover; border-radius:.7rem; }
+.design h1 { font-family:var(--font-sans); font-size:2.8rem; line-height:1.12; letter-spacing:-.045em; font-weight:650; }
+.role { color:var(--ink); font-size:1rem; font-weight:600; line-height:1.5; max-width:54ch; margin-top:.65rem; }
+.formats { display:flex; flex-direction:column; align-items:flex-end; align-self:start; }
+.formats .actions { display:flex; flex-direction:row; gap:1.1rem; margin:0; }
+.formats .actions a,.formats .actions button { font-size:.7rem; color:var(--muted); padding:.6rem 0; }
+.resume-grid { display:grid; grid-template-columns:minmax(0,1fr) 20rem; gap:var(--space); align-items:start; }
+.main-column,.sidebar { display:flex; flex-direction:column; gap:var(--space); min-width:0; }
+.panel { min-width:0; background:var(--paper); border-radius:var(--radius); padding:1.65rem 1.8rem; }
+.design h2 { font-size:1.05rem; line-height:1.35; letter-spacing:-.02em; font-weight:650; margin-bottom:1rem; }
+.design h3 { font-size:1rem; font-weight:600; line-height:1.4; }
+.section-heading { display:flex; align-items:baseline; justify-content:space-between; gap:1rem; }
+.section-heading>span,.section-heading time { font-size:.72rem; color:var(--muted); white-space:nowrap; }
+/* Focus is an ordinary section, with no decorative side rule. */
+.focus ul { list-style:disc; padding-left:1rem; display:grid; gap:.8rem; }
+.focus li { padding-left:.2rem; }
+.focus li::marker { color:var(--muted); font-size:.75em; }
+.focus li+li { border:0; }
+.focus em { font-style:normal; font-weight:550; }
+.position { padding:1.45rem 0; }
+.position+.position { border-top:1px solid var(--line); }
+.position:first-of-type { padding-top:.45rem; }
+.position:last-child { padding-bottom:0; }
+.job-heading { display:flex; justify-content:space-between; gap:.5rem 1rem; flex-wrap:wrap; align-items:baseline; }
+.job-heading h3 { font-size:1.2rem; letter-spacing:-.02em; }
+.job-heading h3 a { text-decoration:none; }
+.period { font-size:.75rem; color:var(--muted); font-variant-numeric:tabular-nums; }
+.job-title { color:var(--accent); font-size:.86rem; margin-top:.25rem; font-weight:500; }
+.job-subtitle { color:var(--muted); font-size:.8rem; margin-top:.45rem; }
+.position ul { padding-left:1rem; margin-top:1rem; }
+.position li { padding-left:.2rem; margin-bottom:.45rem; }
+.position li:last-child { margin-bottom:0; }
+.position li::marker { color:var(--muted); font-size:.75em; }
+.stack { color:var(--muted); font-size:.75rem; margin-top:1rem; line-height:1.65; }
+.earlier>p { margin-top:.65rem; }
+.design details { margin-top:.9rem; font-size:.8rem; color:var(--muted); }
+.design summary { cursor:pointer; text-underline-offset:.2rem; padding:.5rem 0; }
+.design summary:hover { color:var(--accent); }
+.design details p { margin-top:.65rem; }
+.early-role { margin-top:1.25rem; }
+.sidebar .panel { padding:1.4rem 1.5rem; }
+.sidebar h2 { margin-bottom:1rem; }
+.design dt { color:var(--muted); }
+.design dd { min-width:0; overflow-wrap:anywhere; }
+.education .job-title { color:var(--accent); font-size:.86rem; font-weight:500; margin-top:0; }
+.education p { color:var(--muted); font-size:.8rem; margin-top:.4rem; }
+.colophon { display:flex; justify-content:space-between; gap:1rem; font-size:.7rem; color:var(--muted); padding:.25rem .25rem 0; margin-top:1.5rem; }
+.colophon a { white-space:nowrap; }
+
+@media(prefers-color-scheme:dark) {
+ .design { --ground:#201f1d; --paper:#302e2a; --sheet:#272622; --ink:#f1efea; --muted:#c2beb4; --line:#4c4942; --accent:#d4cec1; --tint:#3a3731; }
+}
+@media(max-width:65rem) {
+ .resume-sheet { margin:0 1rem; padding:1.5rem; }
+ .resume-grid { grid-template-columns:minmax(0,1fr) 17.5rem; }
+ .profile { gap:1rem; }
+ .panel { padding:1.5rem; }
+ .design h1 { font-size:2.4rem; }
+}
+@media(max-width:48rem) {
+ .design { padding:1rem 0; }
+ .resume-sheet { margin:0 .65rem; padding:1rem; }
+ .profile { grid-template-columns:5.5rem minmax(0,1fr); gap:1rem; padding:.4rem 0 1.4rem; }
+ .portrait { width:5.5rem; height:5.5rem; }
+ .design h1 { font-size:2rem; }
+ .role { font-size:.875rem; }
+ .identity { display:contents; }
+ .identity h1 { grid-column:2; grid-row:1; align-self:center; }
+ .identity .role { grid-column:1/-1; margin-top:0; }
+ .formats { grid-column:1/-1; flex-direction:row; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:.5rem 1rem; }
+ .formats .actions { gap:.9rem; }
+ .resume-grid { display:flex; flex-direction:column; }
+ .main-column,.sidebar { width:100%; }
+ .panel,.sidebar .panel { padding:1.3rem; }
+ .section-heading { flex-wrap:wrap; gap:0 .5rem; }
+ .job-heading { display:block; }
+ .colophon { font-size:.65rem; flex-wrap:wrap; }
+}
+
+.keywords { font-size:.85rem; line-height:1.65; }
+
+@media (min-width:48.01rem) and (max-width:65rem), (max-width:23rem) {
+ .contact-location { font-size:.6875rem; }
+ .profile-links { gap:.35rem; font-size:.75rem; }
+}
+
+.colophon { justify-content:flex-end; }
+
+/* Four equally weighted contact rows. */
+.sidebar .contact { padding:1.4rem 1.5rem; }
+.contact-primary,.contact-footer { display:contents; }
+.contact-email,.profile-links,.contact-location,.contact-business {
+ display:block; font-size:.875rem; font-weight:400; line-height:1.6;
+ color:var(--ink); letter-spacing:normal; margin:0; padding:0;
+}
+.contact-email { text-decoration:none; }
+.profile-links { display:flex; align-items:center; gap:.35rem; }
+.profile-links,.contact-location,.contact-business { margin-top:.8rem; }
+.profile-links a { white-space:nowrap; text-decoration:none; }
+.contact-email:hover,.profile-links a:hover { text-decoration:underline; text-underline-offset:.2rem; }
+.contact-location,.contact-business { white-space:nowrap; }
+.vat { font-variant-numeric:tabular-nums; }
+@media(max-width:48rem) {
+ .sidebar .contact { padding:1.3rem; }
+}
+@media (min-width:48.01rem) and (max-width:65rem), (max-width:23rem) {
+ .contact-email,.profile-links,.contact-location,.contact-business { font-size:.75rem; }
+}

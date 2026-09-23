@@ -17,7 +17,7 @@ export const person = {
   role: "Lead Front-end Engineer",
   engagement: "Freelance",
   startYear: 2006,
-  location: { label: "Belgium", countryCode: "BE", remote: true },
+  location: { city: "Ghent", label: "Belgium", countryCode: "BE", remote: true },
   // TODO(thomas): e.g. "Available from January 2027". Rendered only when set.
   availability: null as string | null,
   email: "thomasstock1985@gmail.com",
@@ -48,17 +48,17 @@ export const yearsOfExperience = new Date().getFullYear() - person.startYear;
 /** Two sentences. The first doubles as meta description and Open Graph text. */
 export const summaryParts = (years: number): [string, string] => [
   `Product-minded front-end lead with ${years} years of shipping web software, from .NET to React.`,
-  `I own architecture, grow teams and set the conventions that keep a codebase healthy when humans and AI both write the code.`,
+  `Owning architecture, growing teams and setting the conventions that keep a codebase healthy when humans and AI both write the code.`,
 ];
 
-export const summary = (years: number) => summaryParts(years).join(" ");
+export const summary = (years: number) => summaryParts(years)[0];
 
 export const now = {
-  updated: "2026-09-05",
+  updated: "2026-09-23",
   items: [
+    "Leading front-end at [Peripass](https://peripass.com/). Making the codebase AI-ready through developer and agent experience: conventions, CI and fast feedback loops.",
+    summaryParts(yearsOfExperience)[1],
     "Figuring out how *anyone* can ship with AI responsibly: guardrails, review, tests, conventions.",
-    "Researching what a developer's job is now, and what it should be next.",
-    "Leading front-end at [Peripass](https://peripass.com). Making the codebase AI-ready through developer and agent experience: conventions, CI and fast feedback loops.",
   ],
 };
 
@@ -175,7 +175,10 @@ export const moreSkills = [
   "Svelte",
   "Node.js",
   "C# and ASP.NET MVC",
-  "SQL and PostgreSQL",
+  "MS SQL",
+  "MySQL",
+  "PostgreSQL",
+  "SQLite",
   "Drizzle",
   "Supabase",
   "Vercel",

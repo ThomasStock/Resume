@@ -1,0 +1,52 @@
+---
+import { Image } from 'astro:assets';
+import photo from '../assets/thomas.jpeg';
+import { person, summaryParts, yearsOfExperience, now, experience, earlier, coreSkills, moreSkills } from '../data/resume';
+import { formatPeriod } from '../lib/format';
+import { inlineHtml } from '../lib/inline';
+import Header from './Header.astro';
+import Now from './Now.astro';
+import Experience from './Experience.astro';
+import Skills from './Skills.astro';
+import Footer from './Footer.astro';
+import Actions from './Actions.astro';
+import '../styles/designs.css';
+const parts = summaryParts(yearsOfExperience);
+const keywords = [...new Set([...coreSkills, ...moreSkills])].sort((a, b) =>
+  a.localeCompare(b, "en", { sensitivity: "base" })
+);
+---
+<div class="design screen-only">
+  <main class="resume-sheet" id="main">
+    <header class="profile">
+      <Image class="portrait" src={photo} width={320} height={320} alt={`Portrait of ${person.name}`} loading="eager" />
+      <div class="identity"><h1>{person.name}</h1><p class="role">{parts[0]}</p>{person.availability && <p>{person.availability}</p>}</div>
+      <div class="formats"><Actions /></div>
+    </header>
+    <div class="resume-grid">
+      <div class="main-column">
+      <section class="panel focus" aria-labelledby="focus-heading"><div class="section-heading"><h2 id="focus-heading">Current focus</h2></div><ul>{now.items.map(item => <li set:html={inlineHtml(item)} />)}</ul></section>
+      <section class="panel career" aria-label="Experience">
+        {experience.map(job => <article class="position"><div class="job-heading"><h3>{job.url ? <a href={job.url}>{job.company}</a> : job.company}</h3><span class="period">{formatPeriod(job.start, job.end)}</span></div><p class="job-title">{job.title}</p>{job.subtitle && <p class="job-subtitle">{job.subtitle}</p>}<ul>{job.bullets.map(b => <li>{b}</li>)}</ul></article>)}
+        <article class="position earlier"><div class="job-heading"><h3>{earlier.heading}</h3><span class="period">{formatPeriod(earlier.start, earlier.end)}</span></div><p>{earlier.summary}</p><details><summary>{earlier.roles.map(r => r.company).join(' · ')}</summary>{earlier.roles.map(r => <div class="early-role"><h4>{r.company} · {r.title}</h4><p class="period">{formatPeriod(r.start, r.end)}</p><p>{[...r.bullets, ...(r.stack ?? [])].join(', ')}</p></div>)}</details></article>
+      </section>
+      </div>
+      <aside class="sidebar" aria-label="Contact, skills and background">
+        <section class="panel contact" aria-label="Contact">
+          <div class="contact-primary">
+            <a class="contact-email" href={`mailto:${person.email}`}>{person.email}</a>
+            <nav class="profile-links" aria-label="Online profiles">{person.profiles.map((p, i) => <>{i > 0 && <span aria-hidden="true">·</span>}<a href={p.url} rel="me noopener">{p.network}</a></>)}</nav>
+          </div>
+          <div class="contact-footer">
+            <p class="contact-location">{person.location.city}, {person.location.label}<span aria-hidden="true"> · </span>{person.languages.map(l => l.language).join(" / ")}</p>
+            <p class="contact-business">{person.business.name}<span aria-hidden="true"> · </span><span class="vat">{person.business.vat}</span></p>
+          </div>
+        </section>
+        <section class="panel toolbox" aria-labelledby="skills-heading"><h2 id="skills-heading">Keywords for your agent</h2><p class="keywords">{keywords.join(", ")}</p></section>
+        <section class="panel education" aria-labelledby="education-heading"><h2 id="education-heading">Education</h2>{person.education.map(e => <div><p class="job-title">{e.studyType} {e.area}</p><p>{e.institution}</p></div>)}</section>
+      </aside>
+    </div>
+    <footer class="colophon"><a href="#main">Back to top ↑</a></footer>
+  </main>
+</div>
+<div class="print-only page"><Header /><Now /><Experience /><Skills /><Footer /></div>
