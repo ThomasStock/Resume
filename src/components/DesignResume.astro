@@ -7,12 +7,13 @@ import { inlineHtml } from '../lib/inline';
 import Actions from './Actions.astro';
 import PrintResume from './PrintResume.astro';
 import '../styles/designs.css';
+import '../styles/palettes.css';
 const parts = summaryParts(yearsOfExperience);
 const keywords = [...new Set([...coreSkills, ...moreSkills])].sort((a, b) =>
   a.localeCompare(b, "en", { sensitivity: "base" })
 );
 ---
-<div class="design screen-only">
+<div class="design palette-eucalyptus screen-only">
   <main class="resume-sheet" id="main">
     <header class="profile">
       <Image class="portrait" src={photo} width={320} height={320} alt={`Portrait of ${person.name}`} loading="eager" />
@@ -34,7 +35,8 @@ const keywords = [...new Set([...coreSkills, ...moreSkills])].sort((a, b) =>
             <nav class="profile-links" aria-label="Online profiles">{person.profiles.map((p, i) => <>{i > 0 && <span aria-hidden="true">·</span>}<a href={p.url} rel="me noopener">{p.network}</a></>)}</nav>
           </div>
           <div class="contact-footer">
-            <p class="contact-location">{person.location.city}, {person.location.label}<span aria-hidden="true"> · </span>{person.languages.map(l => l.language).join(" / ")}</p>
+            <p class="contact-location">{person.location.city}, {person.location.label}</p>
+            <p class="contact-languages">{person.languages.map(l => l.language).join(" / ")}</p>
             <p class="contact-business">{person.business.name}<span aria-hidden="true"> · </span><span class="vat">{person.business.vat}</span></p>
           </div>
         </section>

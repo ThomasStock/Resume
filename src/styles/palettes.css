@@ -1,0 +1,9 @@
+/* Eucalyptus palette. */
+.design.palette-eucalyptus {
+ --ground:#f0f5f1; --paper:#ffffff; --ink:#243d33; --muted:#596d62;
+ --line:#d8e4dc; --accent:#286448; --tint:#dcebe1;
+}
+.palette-eucalyptus .focus h2,.palette-eucalyptus .sidebar h2 { color:var(--accent); }
+@media(prefers-color-scheme:dark) {
+ .design.palette-eucalyptus { --ground:#16251f; --paper:#24382e; --ink:#edf5ee; --muted:#b4c9bc; --line:#40594a; --accent:#a6dcbd; --tint:#304f3d; }
+}

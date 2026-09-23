@@ -1,8 +1,8 @@
 /* Essential. Columns flow independently so sidebar height never
    stretches the gaps between the main sections. Print uses the shared CV. */
 .design {
-  --ground:#eae9e5; --paper:#fff; --sheet:#f5f4f1; --ink:#302f2c;
-  --muted:#696760; --line:#e5e3de; --accent:#514e46; --tint:#f3f1ec;
+  --ground:#f8f7f5; --paper:#fff; --sheet:#f5f4f1; --ink:#302f2c;
+  --muted:#696760; --line:#e5e3de; --accent:#514e46; --tint:#f3f2ee;
   --radius:.8rem; --space:1.25rem;
   color:var(--ink); background:var(--ground); min-height:100vh;
   padding:2.5rem 0 3rem; color-scheme:light; font-family:Arial, Helvetica, sans-serif; font-size:.875rem; line-height:1.6;
@@ -26,8 +26,9 @@
 .section-heading { display:flex; align-items:baseline; justify-content:space-between; gap:1rem; }
 .section-heading>span,.section-heading time { font-size:.72rem; color:var(--muted); white-space:nowrap; }
 /* Focus is an ordinary section, with no decorative side rule. */
-.focus ul { list-style:disc; padding-left:1rem; display:grid; gap:.8rem; }
-.focus li { padding-left:.2rem; }
+.focus { background:var(--tint); }
+.focus ul { list-style:disc; padding-left:0; display:grid; gap:.8rem; }
+.focus li { padding-left:0; }
 .focus li::marker { color:var(--muted); font-size:.75em; }
 .focus li+li { border:0; }
 .focus em { font-style:normal; font-weight:550; }
@@ -41,8 +42,8 @@
 .period { font-size:.75rem; color:var(--muted); font-variant-numeric:tabular-nums; }
 .job-title { color:var(--accent); font-size:.86rem; margin-top:.25rem; font-weight:500; }
 .job-subtitle { color:var(--muted); font-size:.8rem; margin-top:.45rem; }
-.position ul { padding-left:1rem; margin-top:1rem; }
-.position li { padding-left:.2rem; margin-bottom:.45rem; }
+.position ul { padding-left:0; margin-top:1rem; }
+.position li { padding-left:0; margin-bottom:.45rem; }
 .position li:last-child { margin-bottom:0; }
 .position li::marker { color:var(--muted); font-size:.75em; }
 .stack { color:var(--muted); font-size:.75rem; margin-top:1rem; line-height:1.65; }
@@ -100,16 +101,17 @@
 
 .colophon { justify-content:flex-end; }
 
-/* Four equally weighted contact rows. */
+/* Consistent type, grouped by contact links and personal details. */
 .sidebar .contact { padding:1.4rem 1.5rem; }
-.contact-primary,.contact-footer { display:contents; }
-.contact-email,.profile-links,.contact-location,.contact-business {
+.contact-primary,.contact-footer { display:grid; gap:.5rem; }
+.contact-footer { margin-top:1.3rem; }
+.contact-email,.profile-links,.contact-location,.contact-languages,.contact-business {
  display:block; font-size:.875rem; font-weight:400; line-height:1.6;
  color:var(--ink); letter-spacing:normal; margin:0; padding:0;
 }
 .contact-email { text-decoration:none; }
 .profile-links { display:flex; align-items:center; gap:.35rem; }
-.profile-links,.contact-location,.contact-business { margin-top:.8rem; }
+.contact-business { margin-top:.6rem; }
 .profile-links a { white-space:nowrap; text-decoration:none; }
 .contact-email:hover,.profile-links a:hover { text-decoration:underline; text-underline-offset:.2rem; }
 .contact-location,.contact-business { white-space:nowrap; }
@@ -118,5 +120,20 @@
  .sidebar .contact { padding:1.3rem; }
 }
 @media (min-width:48.01rem) and (max-width:65rem), (max-width:23rem) {
- .contact-email,.profile-links,.contact-location,.contact-business { font-size:.75rem; }
+ .contact-email,.profile-links,.contact-location,.contact-languages,.contact-business { font-size:.75rem; }
+}
+
+/* Reserve a proper gutter for hanging bullets, without indenting the copy. */
+.main-column > .panel { padding:1.8rem 2rem 1.8rem 2.5rem; }
+.focus ul,.position ul { list-style:none; }
+.focus li,.position li { position:relative; }
+.focus li::before,.position li::before {
+ content:""; position:absolute; left:-1.05rem; top:.7em;
+ width:.2rem; height:.2rem; border-radius:50%; background:var(--muted);
+}
+.focus ul { gap:.95rem; }
+.position li { margin-bottom:.65rem; }
+@media(max-width:48rem) {
+ .main-column > .panel { padding:1.4rem 1.3rem 1.4rem 1.9rem; }
+ .focus li::before,.position li::before { left:-.85rem; }
 }
