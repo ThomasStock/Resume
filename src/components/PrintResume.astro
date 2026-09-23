@@ -1,0 +1,85 @@
+---
+import { Image } from 'astro:assets';
+import photo from '../assets/thomas.jpeg';
+import { person, site, summary, yearsOfExperience, now, experience, earlier, coreSkills, moreSkills } from '../data/resume';
+import { formatPeriod } from '../lib/format';
+import { inlineHtml } from '../lib/inline';
+const keywords = [...new Set([...coreSkills, ...moreSkills])].sort((a, b) => a.localeCompare(b, 'en', { sensitivity: 'base' }));
+---
+<main class="pdf-resume print-only">
+  <header class="pdf-header">
+    <Image src={photo} width={320} height={320} alt={`Portrait of ${person.name}`} class="pdf-photo" />
+    <div><h1>{person.name}</h1><p class="pdf-intro">{summary(yearsOfExperience)}</p></div>
+  </header>
+  <div class="pdf-columns">
+    <div class="pdf-main">
+      <section class="pdf-focus" aria-labelledby="pdf-focus-heading">
+        <h2 id="pdf-focus-heading">Current focus</h2>
+        <ul>{now.items.map(item => <li set:html={inlineHtml(item)} />)}</ul>
+      </section>
+      <section aria-label="Experience">
+        {experience.map(job => <article class="pdf-job">
+          <div class="pdf-job-heading"><h2>{job.url ? <a href={job.url}>{job.company}</a> : job.company}</h2><span class="pdf-date">{formatPeriod(job.start, job.end)}</span></div>
+          <p class="pdf-role">{job.title}</p>
+          {job.subtitle && <p class="pdf-note">{job.subtitle}</p>}
+          <ul>{job.bullets.map(b => <li>{b}</li>)}</ul>
+        </article>)}
+        <article class="pdf-job">
+          <div class="pdf-job-heading"><h2>{earlier.heading}</h2><span class="pdf-date">{formatPeriod(earlier.start, earlier.end)}</span></div>
+          <p>{earlier.summary}</p>
+          <p class="pdf-note pdf-companies">{earlier.roles.map(r => r.company).join(' · ')}</p>
+        </article>
+      </section>
+    </div>
+    <aside class="pdf-sidebar" aria-label="Contact, keywords and education">
+      <section class="pdf-contact" aria-label="Contact">
+        <p><a href={`mailto:${person.email}`}>{person.email}</a></p>
+        <p class="pdf-profiles">{person.profiles.map((p, i) => <>{i > 0 && ' · '}<a href={p.url}>{p.network}</a></>)}</p>
+        <p>{person.location.city}, {person.location.label}</p>
+        <p>{person.languages.map(l => l.language).join(' / ')}</p>
+        <p class="pdf-business">{person.business.name}<br />{person.business.vat}</p>
+        {person.availability && <p>{person.availability}</p>}
+      </section>
+      <section class="pdf-keywords"><h2>Keywords for your agent</h2><p>{keywords.join(', ')}</p></section>
+      <section class="pdf-education"><h2>Education</h2>{person.education.map(e => <><p class="pdf-role">{e.studyType} {e.area}</p><p>{e.institution}</p></>)}</section>
+    </aside>
+  </div>
+  <footer class="pdf-footer"><a href={site.url}>{new URL(site.url).host}</a><span>{person.name}</span></footer>
+</main>
+<style>
+  @media print {
+    .pdf-resume { font-family:Arial, Helvetica, sans-serif; color:#302f2c; font-size:.93rem; line-height:1.48; }
+    .pdf-header { display:grid; grid-template-columns:6.4rem 1fr; gap:1.6rem; align-items:center; padding:.5rem 0 1.8rem; }
+    .pdf-photo { width:6.4rem; height:6.4rem; border-radius:.65rem; object-fit:cover; }
+    h1 { font-family:var(--font-sans); font-size:2.8rem; font-weight:650; line-height:1.1; letter-spacing:-.055em; }
+    .pdf-intro { margin-top:.75rem; font-size:1.05rem; font-weight:600; max-width:46ch; line-height:1.5; }
+    .pdf-columns { display:grid; grid-template-columns:minmax(0,1fr) 14.4rem; gap:1.7rem; align-items:start; }
+    h2 { font-size:1.1rem; font-weight:700; line-height:1.3; letter-spacing:-.015em; margin-bottom:.7rem; }
+    .pdf-focus { background:#f3f2ee; padding:1.1rem 1.2rem; border-radius:.6rem; margin-bottom:1.6rem; }
+    ul { padding-left:1rem; }
+    li { padding-left:.15rem; margin-bottom:.45rem; }
+    li:last-child { margin-bottom:0; }
+    li::marker { color:#77736c; font-size:.75em; }
+    .pdf-job { padding:1.1rem 0; border-top:1px solid #e1ded7; break-inside:avoid; }
+    .pdf-job:first-child { padding-top:0; border:0; }
+    .pdf-job:last-child { padding-bottom:0; }
+    .pdf-job-heading { display:flex; justify-content:space-between; align-items:baseline; gap:.5rem; }
+    .pdf-job-heading h2 { margin-bottom:.3rem; font-size:1.22rem; }
+    .pdf-date { color:#666159; font-size:.8rem; white-space:nowrap; }
+    .pdf-role { color:#514e46; font-size:.93rem; margin-bottom:.7rem; }
+    .pdf-note { font-size:.81rem; color:#666159; line-height:1.5; margin:-.2rem 0 .75rem; }
+    .pdf-companies { margin:.6rem 0 0; }
+    .pdf-sidebar { font-size:.83rem; line-height:1.6; border-left:1px solid #e1ded7; padding-left:1.3rem; }
+    .pdf-sidebar section+section { margin-top:1.6rem; padding-top:1.25rem; border-top:1px solid #e1ded7; }
+    .pdf-sidebar h2 { font-size:.98rem; margin-bottom:.75rem; }
+    .pdf-contact p+p { margin-top:.55rem; }
+    .pdf-contact a { white-space:nowrap; }
+    .pdf-profiles { font-size:.8rem; white-space:nowrap; }
+    .pdf-business { color:#666159; }
+    .pdf-keywords p { color:#514e46; }
+    .pdf-education .pdf-role { margin-bottom:.3rem; }
+    .pdf-education>p:last-child { color:#666159; }
+    .pdf-footer { border-top:1px solid #e1ded7; margin-top:1.7rem; padding-top:.7rem; display:flex; justify-content:space-between; font-size:.8rem; color:#666159; }
+    a { color:inherit; text-decoration:none; }
+  }
+</style>

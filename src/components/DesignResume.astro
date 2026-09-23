@@ -4,12 +4,8 @@ import photo from '../assets/thomas.jpeg';
 import { person, summaryParts, yearsOfExperience, now, experience, earlier, coreSkills, moreSkills } from '../data/resume';
 import { formatPeriod } from '../lib/format';
 import { inlineHtml } from '../lib/inline';
-import Header from './Header.astro';
-import Now from './Now.astro';
-import Experience from './Experience.astro';
-import Skills from './Skills.astro';
-import Footer from './Footer.astro';
 import Actions from './Actions.astro';
+import PrintResume from './PrintResume.astro';
 import '../styles/designs.css';
 const parts = summaryParts(yearsOfExperience);
 const keywords = [...new Set([...coreSkills, ...moreSkills])].sort((a, b) =>
@@ -49,4 +45,4 @@ const keywords = [...new Set([...coreSkills, ...moreSkills])].sort((a, b) =>
     <footer class="colophon"><a href="#main">Back to top ↑</a></footer>
   </main>
 </div>
-<div class="print-only page"><Header /><Now /><Experience /><Skills /><Footer /></div>
+<PrintResume />
